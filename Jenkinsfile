@@ -7,13 +7,14 @@ pipeline {
                     sh 'sonar-scanner'
                     }
             }
-        }
-    post { 
-        always { 
-                dir("./SimpleCustomerApp//target/surefire-reports/") {
-                archiveArtifacts artifacts: '*.*', fingerprint: true
+        
+        post { 
+                always { 
+                    dir("./SimpleCustomerApp//target/surefire-reports/") {
+                    archiveArtifacts artifacts: '*.*', fingerprint: true
+                    }
                 }
+            }   
         }
-    }
     }
 }
