@@ -8,13 +8,7 @@ pipeline {
                     }
             }
         
-        post { 
-                always { 
-                    dir("./SimpleCustomerApp//target/surefire-reports/") {
-                    archiveArtifacts artifacts: '*.*', fingerprint: true
-                    }
-                }
-            }   
+        
         }
     }
 }
