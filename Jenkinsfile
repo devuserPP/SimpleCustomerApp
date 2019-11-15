@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('SonarQube') {
             environment {
-            scannerHome = tool 'SonarQube'
+            scannerHome = tool 'sonar-scanner'
             }
             
             steps {
                     dir("./SimpleCustomerApp/") {
-                        withSonarQubeEnv('SonarQube') {                    
+                        withSonarQubeEnv('SonarQube-Server') {                    
                         sh "${scannerHome}/bin/sonar-scanner"
                         }
                     }
