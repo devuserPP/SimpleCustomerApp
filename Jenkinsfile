@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('SonarQube') {
             environment {
-            scannerHome = tool 'sonar-scanner'
+            SonarQubeScannerHome = tool 'sonar-scanner'
             // in the Global Tool Configuration in Jenkins 
             }
             
@@ -11,7 +11,7 @@ pipeline {
                     dir("./SimpleCustomerApp/") {
                         withSonarQubeEnv('SonarQube-Server') {                    
                    //     sh "${scannerHome}/bin/sonar-scanner"
-                        sh "${sonarqubeScannerHome}/bin/sonar-scanner -Dsonar.host.url=http://http://localhost:90/sonar -Dproject.settings='sonar-project.properties' -Dsonar.projectBaseDir=."
+                        sh "${SonarQubeScannerHome}/bin/sonar-scanner -Dsonar.host.url=http://http://localhost:90/sonar -Dproject.settings='sonar-project.properties' -Dsonar.projectBaseDir=."
                         }
                     }
             }
