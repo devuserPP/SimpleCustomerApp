@@ -11,7 +11,7 @@ pipeline {
                     dir("./SimpleCustomerApp/") {
                         withSonarQubeEnv('SonarQube-Server') {                    
                    //     sh "${scannerHome}/bin/sonar-scanner"
-                        sh "${SonarQubeScannerHome}/bin/sonar-scanner -Dsonar.host.url=http://localhost:90/sonar -Dproject.settings='sonar-project.properties' -Dsonar.projectBaseDir=."
+                        sh "${SonarQubeScannerHome}/bin/sonar-scanner -Dsonar.host.url=http://my-sonar:9000/sonar -Dproject.settings='sonar-project.properties' -Dsonar.projectBaseDir=."
                         }
                     }
             }
